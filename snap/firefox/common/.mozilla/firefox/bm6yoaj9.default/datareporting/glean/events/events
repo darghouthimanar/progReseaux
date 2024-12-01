@@ -1,0 +1,5 @@
+{"timestamp":10446967,"category":"fog.validation","name":"validate_early_event"}
+{"timestamp":10451118,"category":"webcompatreporting","name":"reason_dropdown","extra":{"setting":"required"}}
+{"timestamp":10457838,"category":"nimbus_events","name":"is_ready"}
+{"timestamp":10467312,"category":"serp","name":"impression","extra":{"tagged":"true","is_shopping_page":"false","provider":"google","is_private":"false","impression_id":"d708fe7c-92ac-4f8d-bcff-f10648126442","source":"urlbar","partner_code":"ubuntu-sn","shopping_tab_displayed":"false"}}
+{"timestamp":10478228,"category":"serp","name":"abandonment","extra":{"impression_id":"d708fe7c-92ac-4f8d-bcff-f10648126442","reason":"navigation"}}

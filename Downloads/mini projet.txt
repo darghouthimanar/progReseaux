@@ -1,0 +1,116 @@
+#dressage de routeur:
+enable
+configure terminal
+hostname Router1
+ip domain-name mydomain.com
+crypto key generate rsa modulus 1024
+ip ssh version 2
+username admin privilege 15 secret admin123
+line vty 0 4
+login local
+transport input ssh
+exit
+interface FastEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+ip route 0.0.0.0 0.0.0.0 192.168.1.254
+show ip interface brief
+show running-config
+copy running-config startup-config
+confuguration de vm:
+sudo su
+chmod 600 /etc/netplan/01-netcfg.yaml
+nano /etc/netplan/01-netcfg.yaml
+network:
+  version: 2
+  ethernets:
+    enp0s3:صلحوهاااااااا
+      addresses: [192.168.1.2/24]
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8]
+systemctl enable systemd-networkd
+systemctl start systemd-networkd
+systemctl status systemd-networkd
+netplan apply
+ip addr show enp0s3
+ping @ip routeur*
+apt update
+apt install python3 python3-pip -y
+python3 -m venv env
+source env/bin/activate
+pip install netmiko
+pip show netmiko
+nano script1.py
+from netmiko import ConnectHandler
+
+# Configuration de connexion au routeur
+router = {
+    'device_type': 'cisco_ios',   # Type de périphérique (par ex. Cisco IOS)
+    'host': '192.168.1.1',        # Adresse IP ou nom DNS du routeur
+    'username': 'admin',          # Nom d'utilisateur pour SSH
+    'password': 'admin123',       # Mot de passe pour SSH
+}
+
+try:
+    # Connexion au routeur
+    print("Connexion au routeur...")
+    net_connect = ConnectHandler(**router)
+
+    # Récupérer la liste des interfaces
+    print("Récupération des interfaces actives...")
+    interfaces = net_connect.send_command("show ip interface brief")
+
+    # Sauvegarder la sortie dans un fichier
+    with open("active_interfaces.txt", "w") as file:
+        file.write(interfaces)
+
+    print("Liste des interfaces actives sauvegardée dans 'active_interfaces.txt'.")
+    net_connect.disconnect()
+
+except Exception as e:
+    print(f"Une erreur s'est produite : {e}")
+enregistre le script
+python3 script.py
+nano interface.txt
+interface Loopback111
+ip address 10.111.111.111 255.255.255.0
+no shutdown
+enregistre
+nano script2.py
+from netmiko import ConnectHandler
+
+# Configuration de connexion au routeur
+router = {
+    'device_type': 'cisco_ios',
+    'host': '192.168.1.1',
+    'username': 'admin',
+    'password': 'admin123',
+}
+
+try:
+    # Connexion au routeur
+    print("Connexion au routeur...")
+    net_connect = ConnectHandler(**router)
+
+    # Charger les commandes depuis le fichier
+    print("Chargement des commandes...")
+    with open("commands.txt") as file:
+        commands = file.read().splitlines()
+
+    # Envoyer les commandes
+    print("Envoi des commandes...")
+    output = net_connect.send_config_set(commands)
+    print(output)
+
+    # Déconnexion
+    net_connect.disconnect()
+
+except Exception as e:
+    print(f"Une erreur s'est produite : {e}")
+enregistre 
+python3 script2.py
+
+
