@@ -3,13 +3,24 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/manar/Downloads/mini%20projet.txt" added="2024-12-01T16:58:47.183429Z" modified="2024-12-01T16:59:07.408131Z" visited="2024-12-01T16:58:47.183431Z">
+  <bookmark href="file:///home/manar/Downloads/mini%20projet.txt" added="2024-12-01T16:58:47.183429Z" modified="2024-12-01T22:32:59.195138Z" visited="2024-12-01T16:58:47.183431Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/plain"/>
         <bookmark:applications>
-          <bookmark:application name="org.gnome.Nautilus" exec="&apos;gedit %U&apos;" modified="2024-12-01T16:58:47.183464Z" count="1"/>
-          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2024-12-01T16:59:07.408129Z" count="2"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;gedit %U&apos;" modified="2024-12-01T22:32:08.288828Z" count="9"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2024-12-01T22:32:59.195136Z" count="10"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/manar/interfaces.txt" added="2024-12-01T21:50:07.979595Z" modified="2024-12-01T21:50:08.975573Z" visited="2024-12-01T21:50:07.979597Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;gedit %U&apos;" modified="2024-12-01T21:50:07.979621Z" count="1"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2024-12-01T21:50:08.975572Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
